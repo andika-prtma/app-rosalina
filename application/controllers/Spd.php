@@ -6,7 +6,7 @@ class Spd extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->model('spd_model');
+		$this->load->model('m_spd');
 
 	}
 
@@ -23,7 +23,7 @@ class Spd extends CI_Controller {
 
 		$data['driver'] 		= $this->db->get('tbl_mbl_driver');
 		$data['kendaraan'] 		= $this->db->get('tbl_spd_kendaraan');
-		$data['mobil'] 			= $this->spd_model->getCarLocation();
+		$data['mobil'] 			= $this->m_spd->getCarLocation();
 		$data['swal']			= null;
 		if (!$this->session->userdata('site')) {
 			$data['swal'] = 'swal';
@@ -45,7 +45,7 @@ class Spd extends CI_Controller {
 
 		$data['driver'] 		= $this->db->get('tbl_mbl_driver');
 		$data['kendaraan'] 		= $this->db->get('tbl_spd_kendaraan');
-		$data['mobil'] 			= $this->spd_model->getCarLocation();
+		$data['mobil'] 			= $this->m_spd->getCarLocation();
 		$data['swal']			= null;
 		if (!$this->session->userdata('site')) {
 			$data['swal'] = 'swal';
@@ -130,7 +130,7 @@ class Spd extends CI_Controller {
 		$this->db->insert('tbl_spd', $spd);
 		$id_spd = $this->db->insert_id();
 		$attach = $this->upload_file($id_spd);
-		$this->spd_model->update_lampiran($id_spd, $attach);
+		$this->m_spd->update_lampiran($id_spd, $attach);
 
 
 		redirect('home');
@@ -212,7 +212,7 @@ class Spd extends CI_Controller {
 		$this->db->insert('tbl_spd', $spd);
 		$id_spd = $this->db->insert_id();
 		$attach = $this->upload_file($id_spd);
-		$this->spd_model->update_lampiran($id_spd, $attach);
+		$this->m_spd->update_lampiran($id_spd, $attach);
 		if ($save == 'submit') {
 			$data = [
 				'id_spd' => $id_spd,
@@ -329,7 +329,7 @@ class Spd extends CI_Controller {
 
 		$data['driver'] 		= $this->db->get('tbl_mbl_driver');
 		$data['kendaraan'] 		= $this->db->get('tbl_spd_kendaraan');
-		$data['mobil'] 			= $this->spd_model->getCarLocation();
+		$data['mobil'] 			= $this->m_spd->getCarLocation();
 		$data['swal']			= null;
 		if (!$this->session->userdata('site')) {
 			$data['swal'] = 'swal';

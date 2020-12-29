@@ -1,6 +1,6 @@
 <?php 
 
-class Spd_model extends CI_Model{
+class M_spd extends CI_Model{
 	
 	public function update_lampiran($id, $data){
 		$this->db->set('attachment', $data);

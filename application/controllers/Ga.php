@@ -6,7 +6,7 @@ class Ga extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("m_superadmin");
-		$this->load->model("spd_model");
+		$this->load->model("m_spd");
 		$this->load->model("ga_model");
 	}
 
@@ -73,7 +73,7 @@ class Ga extends CI_Controller {
 
 	public function kendaraan2(){
 		$data['title'] = 'List Kendaraan';
-		$data['mobil'] = $this->spd_model->getCarLocation('tbl_mbl');
+		$data['mobil'] = $this->m_spd->getCarLocation('tbl_mbl');
 		$data['location'] = $this->db->get('tbl_mbl_location');
 
 		$this->load->view('spd/structure/header-list', $data);
@@ -86,7 +86,7 @@ class Ga extends CI_Controller {
 
 	public function kendaraan(){
 		$data['title'] = 'List Kendaraan';
-		$data['mobil'] = $this->spd_model->getCarLocation('tbl_mbl');
+		$data['mobil'] = $this->m_spd->getCarLocation('tbl_mbl');
 		$data['location'] = $this->db->get('tbl_mbl_location');
 
 		$this->load->view('header/home-index', $data);
@@ -165,7 +165,7 @@ class Ga extends CI_Controller {
 
 		$data['driver'] 		= $this->db->get('tbl_mbl_driver');
 		$data['kendaraan'] 		= $this->db->get('tbl_spd_kendaraan');
-		$data['mobil'] 			= $this->spd_model->getCarLocation();
+		$data['mobil'] 			= $this->m_spd->getCarLocation();
 		$data['spd']			= $this->ga_model->existingSpd($id)->row();
 		$data['swal']			= null;
 		if (!$this->session->userdata('site')) {
@@ -204,7 +204,7 @@ class Ga extends CI_Controller {
 		$data['url']   = str_replace($current,"",$full);
 
 		$data['title'] = 'SPD Report';
-		$data['mobil'] = $this->spd_model->getCarLocation('tbl_mbl');
+		$data['mobil'] = $this->m_spd->getCarLocation('tbl_mbl');
 		$data['location'] = $this->db->get('tbl_mbl_location');
 		$data['driver'] = $this->db->get('tbl_mbl_driver');
 
@@ -392,7 +392,7 @@ class Ga extends CI_Controller {
 		}
 
 		$data['title'] = 'SPD Report';
-		$data['mobil'] = $this->spd_model->getCarLocation('tbl_mbl');
+		$data['mobil'] = $this->m_spd->getCarLocation('tbl_mbl');
 		$data['location'] = $this->db->get('tbl_mbl_location');
 		$data['driver'] = $this->db->get('tbl_mbl_driver');
 
@@ -430,7 +430,7 @@ class Ga extends CI_Controller {
 
 	public function tes(){
 		$data['title'] = 'tes';
-		$data['mobil'] = $this->spd_model->getCarLocation('tbl_mbl');
+		$data['mobil'] = $this->m_spd->getCarLocation('tbl_mbl');
 		$data['driver'] = $this->db->get('tbl_mbl_driver');
 		$this->load->view('header/ga-report', $data);
 		$this->load->view('home/lte/sidebar');
