@@ -25,4 +25,10 @@ class M_superadmin extends CI_Model{
 				->join('tbl_user_menu as m', 'm.ID = sm.id_menu', 'left');
 		return $this->db->get();
 	}
+
+	public function getAksesMenu($id_role){
+		$this->db->where('id_role', $id_role);
+		$akses = $this->db->get('tbl_user_access_menu')->row();
+		return json_decode($akses->id_menu);
+	}
 }

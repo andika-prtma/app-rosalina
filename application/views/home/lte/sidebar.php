@@ -1,8 +1,6 @@
 <?php   
         $this->load->model("m_superadmin");
-        
-        $arr = $this->db->get_where('tbl_user_access_menu', ['id_role'=> $this->session->userdata('id_role')])->row();
-        $arr = json_decode($arr->id_menu);
+        $arr = $this->m_superadmin->getAksesMenu($this->session->userdata('id_role'));
 ?>
   <aside class="main-sidebar">
     <section class="sidebar">
