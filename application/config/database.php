@@ -94,6 +94,6 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE,
-	'auth' => '2d88d953f0542dc08be7a377050dc2d4'
+	'auth' => 'ROSALINA'
 
 );
