@@ -18,7 +18,7 @@
         <?php foreach ($arr as $m): ?>
         <li class="treeview">
           <?php $submenu  = $this->m_superadmin->getSubMenu($m)->result() ?>
-          <?php $menu     = $this->db->get_where('tbl_user_menu', ['ID' => $m])->row() ?>
+          <?php $menu     = $this->m_superadmin->getUserMenu($m) ?>
           <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span><?= strtoupper($menu->menu) ?></span>

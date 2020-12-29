@@ -31,4 +31,9 @@ class M_superadmin extends CI_Model{
 		$akses = $this->db->get('tbl_user_access_menu')->row();
 		return json_decode($akses->id_menu);
 	}
+
+	public function getUserMenu($id){
+		$this->db->where('ID', $id);
+		return $this->db->get('tbl_user_menu')->row();
+	}
 }
