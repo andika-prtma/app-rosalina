@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SuperAdmin extends CI_Controller {
+class Superadmin extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("superadmin_model");
+		$this->load->model("m_superadmin");
 	}
 
 	public function index(){
@@ -18,9 +18,4 @@ class SuperAdmin extends CI_Controller {
 		$this->load->view('superadmin/structure/footer');
 	}
 
-	public function tes(){
-		$menu = $this->superadmin_model->getMenu($this->session->userdata('id_role'))->result();
-		var_dump($menu);
-
-	}
 }

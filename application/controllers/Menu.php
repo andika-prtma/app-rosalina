@@ -6,13 +6,13 @@ class Menu extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->model('superadmin_model');
+		$this->load->model('m_superadmin');
 	}
 
 	public function index2(){
 		$data['title'] 	= 'Rosalina | Role Management';
 		$data['menu']	= $this->db->get("tbl_user_menu");
-		$data['sub']	= $this->superadmin_model->getAllSubMenu();
+		$data['sub']	= $this->m_superadmin->getAllSubMenu();
 
 		$this->load->view('superadmin/structure/header', $data);
 		$this->load->view('home/sidebar');
@@ -25,7 +25,7 @@ class Menu extends CI_Controller {
 	public function index(){
 		$data['title'] 	= 'Rosalina | Role Management';
 		$data['menu']	= $this->db->get("tbl_user_menu");
-		$data['sub']	= $this->superadmin_model->getAllSubMenu();
+		$data['sub']	= $this->m_superadmin->getAllSubMenu();
 
 		$this->load->view('header/home-index', $data);
 		$this->load->view('home/lte/sidebar');

@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("superadmin_model");
+		$this->load->model("m_superadmin");
 		$this->load->model("spd_model");
 		cek_status_login();
 	}

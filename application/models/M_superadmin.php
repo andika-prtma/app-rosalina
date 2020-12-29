@@ -1,6 +1,6 @@
 <?php 
 
-class SuperAdmin_model extends CI_Model{
+class M_superadmin extends CI_Model{
 	
 	public function getMenu($role){
 		$this->db->select('user_menu.ID, user_menu.menu')
