@@ -57,6 +57,7 @@ class Login extends CI_Controller {
 							'business_unit' => $bu->business_unit
 						];
 						$this->session->set_userdata($user);
+						$this->session->set_userdata('password', $password);
 						$this->m_login->updateLastLogin($cek->row()->ID);
 						
 					} else {
@@ -82,6 +83,7 @@ class Login extends CI_Controller {
 						];
 
 						$this->session->set_userdata($ses);
+						$this->session->set_userdata('password', $password);
 					}
 					redirect('home');
 			}

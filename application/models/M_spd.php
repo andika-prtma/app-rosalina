@@ -32,7 +32,7 @@ class M_spd extends CI_Model{
 		return $this->db->get();	
 	}
 
-	public function sss($id_user){
+	public function getDataUser($id_user){
 		$this->db->select("
 			spd.nomor_spd, spd.departure_date, spd.agenda, spd.project, spd.created_at,
 			 reqby.email as by_email, reqby.first_name as by_name, 
@@ -44,6 +44,11 @@ class M_spd extends CI_Model{
 				->join('tbl_user_login as reqfor', 'reqfor.ID = spd.request_for', 'left')
 				->where('spd.request_for', $id_user);
 		return $this->db->get();	
+	}
+
+	public function getCountSPD($status){
+		$this->db->where('draft', $status);
+		return $this->db->get('tbl_spd')->num_rows();
 	}
 
 }
