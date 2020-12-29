@@ -10,17 +10,6 @@ class Home extends CI_Controller {
 		cek_status_login();
 	}
 
-	public function index2(){
-		$data['title'] = 'Rosalina Dashboard';
-		
-		$this->load->view('home/header', $data);
-		$this->load->view('home/sidebar');
-		$this->load->view('home/topbar');
-		$this->load->view('home/index');
-		$this->load->view('home/footer-content');
-		$this->load->view('home/footer', $data);
-	}
-
 	public function index(){
 		$data['title'] 	= 'Rosalina Dashboard';
 		$data['spd2'] 	= $this->db->get_where('tbl_spd', ['request_by' => $this->session->userdata('id_user')])->result();

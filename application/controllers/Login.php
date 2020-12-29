@@ -45,7 +45,7 @@ class Login extends CI_Controller {
 				];
 
 				$bu  = business_unit($bunit)->data[0];
-				$cek = $this->m_login->getDataUserByEmail($login->data->username);
+				$cek = $this->m_login->getDataByEmail($login->data->username);
 
 					if ($cek->num_rows() > 0) {
 						$user = [
@@ -70,7 +70,7 @@ class Login extends CI_Controller {
 						];
 
 						$id_insert 	= $this->m_login->insertDataUser($insert);
-						$user 		= $this->m_login->getDataUserByID($id_insert)->row();
+						$user 		= $this->m_login->getDataByID($id_insert)->row();
 
 						$ses = [
 							'id_user' 		=> $user->ID,

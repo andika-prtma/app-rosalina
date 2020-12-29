@@ -8,3 +8,4 @@ function cek_status_login(){
 		redirect('login');
 	}
 }
+
